@@ -119,6 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/' #default 
-STATICFILES_DIR = [
+
+MEDIA_URL = '/images/' #set to use images
+
+STATICFILES_DIRS = [ # it must be "STATICFILES_DIRS" not "STATICFILES_DIR"
     os.path.join(BASE_DIR,'static')
 ]
