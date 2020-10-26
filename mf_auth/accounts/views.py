@@ -4,7 +4,10 @@ from django.http import HttpResponse #for routing
 
 #to create view for test
 def home(request):
-    return HttpResponse('home')
+    # return HttpResponse('home')
+    return render(request,'accounts/dashboard.html')
+def products(request):
+    return render(request,'accounts/products.html')
+def customer(request):
+    return render(request,'accounts/customer.html')
 
-def product(request):
-    return HttpResponse('product')
