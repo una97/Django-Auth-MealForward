@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'myapp'
+    'myapp',
+    'corsheaders' # for graphQL with react app
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #you need to add this too
 ]
 
 ROOT_URLCONF = 'register_graphQL.urls'
@@ -124,3 +126,10 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'myapp.schema.schema'
 }
+
+# Add CORS_ORIGIN_WHITELIST to allow these domains be authorized to make cross-site HTTP requests
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+    # your React App domain
+]
